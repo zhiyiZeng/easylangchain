@@ -5,8 +5,14 @@ from langchain_openai import ChatOpenAI
 from langchain_community.chat_models.tongyi import ChatTongyi
 
 
-class EasyChain:
-    def __init__(self, tools: List, model_type: str = "openai", api_key: Optional[str] = None):
+
+class Agent:
+    def __init__(
+        self, 
+        tools: List, 
+        model_type: str = "openai", 
+        api_key: Optional[str] = None
+    ):
         """Initialize EasyChain with tools and model selection
         
         Args:

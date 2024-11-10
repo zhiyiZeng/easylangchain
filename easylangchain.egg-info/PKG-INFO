@@ -24,7 +24,7 @@ However, I do appreciate some of LangChain's standardized design choices, such a
 
 ## Installation
 
-```python 
+```python
 git clone https://github.com/zhiyiZeng/easylangchain.git
 cd easylangchain
 pip install -e .
