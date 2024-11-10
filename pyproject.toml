@@ -1,0 +1,20 @@
+# pyproject.toml
+
+[project]
+name = "easylangchain"
+version = "0.1"
+authors = [
+    { name="zengzhiyi", email="1694609389@qq.com" }
+]
+description = "A simplified wrapper around LangChain for easy tool usage."
+readme = "README.md"
+requires-python = ">=3.8"
+dependencies = [
+    "langchain",
+    "langchain-core",
+    "langchain-community",
+    "langchain-openai",
+]
+
+[project.urls]
+homepage = "https://github.com/zhiyiZeng/easylangchain"

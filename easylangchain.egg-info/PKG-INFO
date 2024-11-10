@@ -1,21 +1,33 @@
 Metadata-Version: 2.1
 Name: easylangchain
-Version: 0.1.0
-Summary: A simplified wrapper around LangChain for easy tool usage
+Version: 0.1
+Summary: A simplified wrapper around LangChain for easy tool usage.
 Home-page: https://github.com/zengzhiyi/easylangchain
 Author: zengzhiyi
-Author-email: 1694609389@qq.com
-Classifier: Programming Language :: Python :: 3
-Classifier: License :: OSI Approved :: MIT License
-Classifier: Operating System :: OS Independent
+Author-email: zengzhiyi <1694609389@qq.com>
+Project-URL: homepage, https://github.com/zhiyiZeng/easylangchain
 Requires-Python: >=3.8
 Description-Content-Type: text/markdown
-Requires-Dist: langchain-community
+License-File: LICENSE
+Requires-Dist: langchain
 Requires-Dist: langchain-core
+Requires-Dist: langchain-community
 Requires-Dist: langchain-openai
 
 # EasyLangChain
 
 A simplified wrapper around LangChain for easy tool usage.
 
+While LangChain is a powerful framework, I found it over-engineered and highly abstracted, which can make it challenging to use effectively. For example, when implementing LLM + Prompt + Tools + Agents + Memory, I encountered numerous issues where both the official documentation examples and ChatGPT-provided solutions would fail. One specific pain point is the complexity around agent creation - it requires using a separate `create_tool_agents` function and an `AgentExecutor` class (which lacks compatible memory APIs), when a single `Agent` class could potentially handle both responsibilities more elegantly.
+
+However, I do appreciate some of LangChain's standardized design choices, such as the `.invoke` naming convention. I want to use LangChain painlessly. If you've faced similar frustrations, you might want to try this library. EasyLangChain's goal is simple: implement most common functionalities in the simplest way possible.
+
 ## Installation
+
+```python 
+git clone https://github.com/zhiyiZeng/easylangchain.git
+cd easylangchain
+pip install -e .
+```
+
+## Requirements
