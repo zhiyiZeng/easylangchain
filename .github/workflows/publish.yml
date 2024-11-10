@@ -10,9 +10,9 @@ on:
   #     - "v*.*.*"
 
   # 以下是推送到 main 分支时触发
-  push:
-    branches:
-      - 'master'
+  # push:
+  #   branches:
+  #     - 'master'
 
 jobs:
   build:
