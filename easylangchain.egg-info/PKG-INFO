@@ -1,0 +1,21 @@
+Metadata-Version: 2.1
+Name: easylangchain
+Version: 0.1.0
+Summary: A simplified wrapper around LangChain for easy tool usage
+Home-page: https://github.com/zengzhiyi/easylangchain
+Author: zengzhiyi
+Author-email: 1694609389@qq.com
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+Requires-Dist: langchain-community
+Requires-Dist: langchain-core
+Requires-Dist: langchain-openai
+
+# EasyLangChain
+
+A simplified wrapper around LangChain for easy tool usage.
+
+## Installation
