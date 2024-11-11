@@ -6,7 +6,6 @@ commit.sh
 create_package.sh
 pyproject.toml
 requirements.txt
-setup.py
 .github/workflows/publish.yml
 easylangchain/__init__.py
 easylangchain.egg-info/PKG-INFO
@@ -24,4 +23,5 @@ easylangchain/memorys/memory.py
 easylangchain/messages/__init__.py
 easylangchain/tools/__init__.py
 easylangchain/utils/__init__.py
+easylangchain/utils/check_version.py
 easylangchain/utils/logger.py

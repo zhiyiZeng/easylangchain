@@ -2,7 +2,7 @@
 
 [project]
 name = "easylangchain"
-version = "0.2.2"
+version = "0.2.3"
 authors = [
     { name="zengzhiyi", email="1694609389@qq.com" }
 ]
