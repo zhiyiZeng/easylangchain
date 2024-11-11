@@ -1,6 +1,5 @@
 from easylangchain.llms import ChatTongyi, ChatOpenAI
 from easylangchain.tools import tool
-from util import get_api_token
 
 
 weathers = {
