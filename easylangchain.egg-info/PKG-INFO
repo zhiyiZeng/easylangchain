@@ -1,6 +1,6 @@
 Metadata-Version: 2.1
 Name: easylangchain
-Version: 0.3
+Version: 0.2.1
 Summary: A simplified wrapper around LangChain for easy tool usage.
 Home-page: https://github.com/zengzhiyi/easylangchain
 Author: zengzhiyi
