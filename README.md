@@ -160,3 +160,10 @@ class ChatOpenAI(CustomBaseLLM):
 
 
 
+## Notes 
+
+To be clear, I think langchain is powerful, but I think it's over-engineered. I appreciate langchain commmuity very much😊.
+
+
+
+
