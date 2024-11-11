@@ -8,9 +8,13 @@ easylangchain.egg-info/SOURCES.txt
 easylangchain.egg-info/dependency_links.txt
 easylangchain.egg-info/requires.txt
 easylangchain.egg-info/top_level.txt
-easylangchain/agent/__init__.py
-easylangchain/agent/agent.py
-easylangchain/llm/__init__.py
-easylangchain/llm/models.py
+easylangchain/agents/__init__.py
+easylangchain/agents/agent.py
+easylangchain/llms/__init__.py
+easylangchain/llms/models.py
+easylangchain/memorys/__init__.py
+easylangchain/memorys/memory.py
+easylangchain/messages/__init__.py
 easylangchain/tools/__init__.py
 easylangchain/utils/__init__.py
+easylangchain/utils/logger.py
