@@ -4,6 +4,8 @@ setup(
     name="easylangchain",
     version="0.1.0",
     packages=find_packages(),
+    use_scm_version=True,
+    setup_requires=["setuptools_scm"],
     install_requires=[
         "langchain-community",
         "langchain-core",

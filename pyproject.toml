@@ -2,13 +2,13 @@
 
 [project]
 name = "easylangchain"
-version = "0.2.1"
+version = "0.2.2"
 authors = [
     { name="zengzhiyi", email="1694609389@qq.com" }
 ]
 description = "A simplified wrapper around LangChain for easy tool usage."
 readme = "README.md"
-requires-python = ">=3.8"
+requires-python = ">=3.10"
 dependencies = [
     "langchain",
     "langchain-core",
@@ -18,3 +18,7 @@ dependencies = [
 
 [project.urls]
 homepage = "https://github.com/zhiyiZeng/easylangchain"
+
+[tool.setuptools_scm]
+version_scheme = "post-release"
+

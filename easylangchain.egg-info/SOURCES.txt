@@ -1,7 +1,13 @@
+.gitignore
 LICENSE
 README.md
+__init__.py
+commit.sh
+create_package.sh
 pyproject.toml
+requirements.txt
 setup.py
+.github/workflows/publish.yml
 easylangchain/__init__.py
 easylangchain.egg-info/PKG-INFO
 easylangchain.egg-info/SOURCES.txt
@@ -10,6 +16,7 @@ easylangchain.egg-info/requires.txt
 easylangchain.egg-info/top_level.txt
 easylangchain/agents/__init__.py
 easylangchain/agents/agent.py
+easylangchain/examples/tryit.py
 easylangchain/llms/__init__.py
 easylangchain/llms/models.py
 easylangchain/memorys/__init__.py

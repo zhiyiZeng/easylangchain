@@ -10,3 +10,4 @@ __all__ = [
     "Logger"
 ]
 
+__version__ = "0.2.2"
