@@ -21,14 +21,14 @@ def get_weather(location: str, date: str = "2024-11-10") -> int:
 
 # OpenAI model
 llm = ChatOpenAI(
-    api_key = get_api_token("OPENAI_TOKEN"), 
+    api_key = "YOUR_OPENAI_TOKEN", 
     model ="gpt-4o",
     has_memory = True, # Enable multi-rounds conversation(with memory)
 )
 
 # Tongyi model
 # llm = ChatTongyi(
-#     api_key = get_api_token("QW_TOKEN"), 
+#     api_key = "YOUR_QWEN_TOKEN", 
 #     model = "qwen-plus",
 #     has_memory = True,
 # )
