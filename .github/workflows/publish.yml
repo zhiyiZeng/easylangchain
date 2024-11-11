@@ -5,14 +5,14 @@ on:
   workflow_dispatch:
 
   # # 推送 tag 是 v*.*.*时触发
-  # push:
-  #   tags:
-  #     - "v*.*.*"
+  push:
+    tags:
+      - "v*.*.*"
 
   # 以下是推送到 main 分支时触发
-  push:
-    branches:
-      - 'master'
+  # push:
+  #   branches:
+  #     - 'master'
 
 jobs:
   build:
