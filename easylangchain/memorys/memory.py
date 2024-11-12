@@ -1,4 +1,4 @@
-from typing import Dict
+from typing import Dict, List
 from easylangchain.messages import MESSAGE_TYPE, MESSAGES_TYPE, SystemMessage, AIMessage, HumanMessage, _convert_messages
 
 
@@ -7,17 +7,23 @@ class Memory:
         self, 
         has_system_message: bool = True,
         messages: MESSAGES_TYPE = [],
+        max_length: int = 100
     ):
         """Memory class"""
+        self.max_length = max_length
         self.has_system_message = has_system_message
-        if len(messages) > 0 and not isinstance(messages[0], SystemMessage):
-            raise ValueError("The first message must be a SystemMessage or set to an empty list!")
         
+        if not isinstance(messages, List):
+            raise ValueError("The messages when Memory is initialized must be a list of messages!")
+        
+        self.initial_messages = "You are a helpful assistant. Use the same language as the user requests last time."
         if not messages and self.has_system_message:
-            messages = [SystemMessage(content = "You are a helpful assistant. Please answer me in the same language as the user requests last time.")]
-        
-        self.messages = _convert_messages(messages)
+            messages = [SystemMessage(content = self.initial_messages)]
+        else:
+            messages.insert(0, SystemMessage(content = self.initial_messages))
 
+        self.messages = _convert_messages(messages)
+        
     def update(self, messages: str | MESSAGE_TYPE | MESSAGES_TYPE):
         """Update the memory with new messages
         """
@@ -41,8 +47,7 @@ class Memory:
 
     def clear(self):
         """Clear the messages"""
-        self.messages = []
-        print("Your memory has been cleared. Make sure you deploy .set_initial_message() to set the initial system message.")
+        self.messages = _convert_messages(messages)
     
     def delete(self, index: int):
         """Delete the message by index"""

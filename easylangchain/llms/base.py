@@ -31,6 +31,7 @@ def check_params(langchain_model, **kwargs):
     
     return filtered_kwargs
 
+
 class BaseLLM:
     
     RESPONSE_FORMAT_TYPES = {
@@ -49,12 +50,12 @@ class BaseLLM:
         # NOTE if has_memory is True, history_memory is used to store the history messages
         # NOTE otherwise, history_memory will only be used to store one round conversation, same as active_memory.
         self.history_memory = Memory(
-            messages = kwargs.get("messages", [])
+            messages = kwargs.get("messages", []),
         )
         
         # NOTE active_memory is used to store the current round conversation.
         self.active_memory = Memory(
-            has_system_message = False
+            has_system_message = False,
         )
 
     def reset_memory(self):
@@ -86,18 +87,25 @@ class BaseLLM:
         self.history_memory.update(messages)
         self.active_memory.update([self.history_memory.get(-1)])
         
+        if self.has_tools:
+            self.history_memory.update(HumanMessage(content = "response with json format if any tools are possible. If not, don't apologize or output unrelated information."))
+            
         response = self.llm.invoke(self.history_memory.get())
         self.history_memory.update(response)
         
-        if self.has_tools and len(response.tool_calls) > 0:
-            self.active_memory.update(response)
-            self.tools_invoke(response.tool_calls)
+        if self.has_tools:
+            if response.invalid_tool_calls:
+                print("Invalid tool calls!", response.invalid_tool_calls)
+            
+            elif len(response.tool_calls) > 0:
+                self.active_memory.update(response)
+                self.tools_invoke(response.tool_calls)
 
-            # Get final response
-            response = self.llm.invoke(self.active_memory.get())
-            self.history_memory.update(response)
-            self.active_memory.update(response)
-        
+                # Get final response
+                response = self.llm.invoke(self.active_memory.get())
+                self.history_memory.update(response)
+                self.active_memory.update(response)
+            
         return response
     
     def tools_invoke(self, tool_calls: List[Dict]):
@@ -116,23 +124,3 @@ class BaseLLM:
         if format_parser is None:
             raise ValueError("not implemented, you can implement it by updating self.RESPONSE_FORMAT_TYPES using pure python dict grammar.")
         return format_parser.invoke(response)
-
-
-class ChatOpenAI(BaseLLM):
-    def __init__(self, **kwargs):
-        super().__init__(**kwargs)
-        from langchain_openai import ChatOpenAI
-        filtered_kwargs = check_params(ChatOpenAI, **kwargs)
-        self.llm = ChatOpenAI(**filtered_kwargs)
-    
-    
-class ChatTongyi(BaseLLM):
-    def __init__(self, **kwargs):
-        super().__init__(**kwargs)
-        
-        from langchain_community.chat_models.tongyi import ChatTongyi
-        
-        os.environ["DASHSCOPE_API_KEY"] = kwargs["api_key"]
-        filtered_kwargs = check_params(ChatTongyi, **kwargs)
-        self.llm = ChatTongyi(**filtered_kwargs)
-
